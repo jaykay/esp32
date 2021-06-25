@@ -2,6 +2,8 @@
 import senko
 import machine
 import network
+import gc
+import micropython
 
 def do_connect():
     sta_if = network.WLAN(network.STA_IF)
@@ -20,15 +22,20 @@ def do_connect():
     ntptime.settime() # set the rtc datetime from the remote server
     print(rtc.datetime())
 
+# print('free:', str(gc.mem_free()))
+# # print('info:', str(machine.info()))
+# print('info:', str(gc.mem_alloc()))
+# print('info:', str(micropython.mem_info()))
+# gc.collect()
 
 
-OTA = senko.Senko(
-  user="jaykay", repo="esp32", files = ["boot.py", "main.py"]
-)
+# OTA = senko.Senko(
+#   user="jaykay", repo="esp32", files = ["boot.py", "main.py"]
+# )
 
 # Connect to Wi-Fi network.
-do_connect()
+# do_connect()
 
-if OTA.update():
-    print("Updated to the latest version! Rebooting...")
-    machine.reset()
+# if OTA.update():
+#     print("Updated to the latest version! Rebooting...")
+#     machine.reset()

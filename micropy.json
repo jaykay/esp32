@@ -1,0 +1,8 @@
+{
+    "name": "esp32",
+    "stubs": {},
+    "dev-packages": {
+        "micropy-cli": "*"
+    },
+    "packages": {}
+}
